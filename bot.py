@@ -57,6 +57,9 @@ def init_excel():
 
 # --- Добавление пользователя в Excel ---
 def add_user_excel(username):
+    import os
+    if not os.path.exists('users.xlsx'):
+        init_excel()
     wb = openpyxl.load_workbook('users.xlsx')
     if 'Users' in wb.sheetnames:
         ws = wb['Users']
